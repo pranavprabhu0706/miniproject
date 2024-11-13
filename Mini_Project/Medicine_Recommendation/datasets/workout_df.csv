@@ -1,0 +1,201 @@
+,Unnamed: 0,disease,workout
+0,0,Fungal infection,Go for a walk daily
+1,1,Fungal infection,Stay hygienic
+2,2,Fungal infection,Wear loose clothes
+4,4,Fungal infection,Limit processed foods
+5,5,Fungal infection,Stay hydrated
+10,10,Allergy,Walk Indoors
+11,11,Allergy,Deep breath for a few minutes
+12,12,Allergy,Stationary Cycling
+13,13,Allergy,Stay hydrated
+14,14,Allergy,Low impact aerobics
+20,20,GERD,Brisk walk daily
+21,21,GERD,Follow gentle cardio workout
+22,22,GERD,Practice yoga
+23,23,GERD,Stationary Cycling
+24,24,GERD,Light Resistance Training
+30,30,Chronic cholestasis,Guided visualization
+31,31,Chronic cholestasis,Breathing exercises
+32,32,Chronic cholestasis,Spinal twists
+33,33,Chronic cholestasis,Floating stretches
+34,34,Chronic cholestasis,Diaphragmatic breathing
+40,40,Drug Reaction,Gentle Stretching
+41,41,Drug Reaction,Shoulder rolls
+42,42,Drug Reaction,Arm raises
+43,43,Drug Reaction,Side bends
+44,44,Drug Reaction,Heel to Toe walk
+45,45,Drug Reaction,Gentle walking
+50,50,Peptic ulcer disease,Gentle walking
+51,51,Peptic ulcer disease,Diaphragmatic breathing
+52,52,Peptic ulcer disease,Box breathing
+53,53,Peptic ulcer disease,Arm movements
+54,54,Peptic ulcer disease,Stretching
+60,60,AIDS,Deep breathing exercises
+61,61,AIDS,Progressive muscle relaxation
+62,62,AIDS,Guided imagery
+63,63,AIDS,Gentle arm and leg movements
+64,64,AIDS,Seated marches
+69,69,AIDS,Consult a healthcare professional
+70,70,Diabetes,Slow walking
+71,71,Diabetes,Yoga
+72,72,Diabetes,Bodyweight squats
+73,73,Diabetes,Cycling
+74,74,Diabetes,Freestyle swimming
+80,80,Gastroenteritis,Stay Active
+81,81,Gastroenteritis, Go for a walk
+82,82,Gastroenteritis, Seated Stretches
+83,83,Gastroenteritis, Chew a bubble gum
+90,90,Bronchial Asthma,Slow walking
+91,91,Bronchial Asthma, Deep breathing
+92,92,Bronchial Asthma,Seated forward bend
+93,93,Bronchial Asthma,Swimming
+94,94,Bronchial Asthma,Cycling
+98,98,Bronchial Asthma,Consult a healthcare professional
+100,100,Hypertension,Meditation
+101,101,Hypertension,Walking
+102,102,Hypertension,Listen to music
+103,103,Hypertension,Cycling
+104,104,Hypertension,Yoga
+110,110,Migraine,Mindful walking
+111,111,Migraine,Regular yoga
+112,112,Migraine,Stretching
+113,113,Migraine, Sound therapy
+120,120,Cervical spondylosis,Include anti-inflammatory foods
+121,121,Cervical spondylosis,Consume omega-3 fatty acids
+122,122,Cervical spondylosis,Include vitamin D-rich foods
+123,123,Cervical spondylosis,Stay hydrated
+124,124,Cervical spondylosis,Consume antioxidant-rich foods
+130,130,Paralysis (brain hemorrhage),Walking
+131,131,Paralysis (brain hemorrhage),Listening to music
+132,132,Paralysis (brain hemorrhage),Relaxation techniques
+133,133,Paralysis (brain hemorrhage),Aquatic therapy
+134,134,Paralysis (brain hemorrhage),Hot water bath
+140,140,Jaundice,Gentle Mobility Flow
+141,141,Jaundice,Core Stability Exercises 
+142,142,Jaundice,Aerobics
+143,143,Jaundice,Meditation
+144,144,Jaundice,Stretching
+150,150,Malaria,Gentle Walking
+151,151,Malaria,Neck rolls
+152,152,Malaria,Shoulder stretches
+153,153,Malaria,Chair Exercises
+154,154,Malaria,Gentle yoga
+160,160,Chicken pox,Gentle Stretching
+161,161,Chicken pox,Breathing Exercises
+162,162,Chicken pox,Yoga Poses for Relaxation
+163,163,Chicken pox,Short Walks
+164,164,Chicken pox,Take adequate rest
+170,170,Dengue,Light Stretching
+171,171,Dengue,Breathing Exercises
+172,172,Dengue,Restorative Yoga
+173,173,Dengue,Short and Slow Walks Indoors
+174,174,Dengue,Take adequate rest
+180,180,Typhoid,Light stretching exercises
+181,181,Typhoid,Walking at a moderate pace
+182,182,Typhoid,Breathing exercises for relaxation and energy
+183,183,Typhoid,Low-impact yoga such as Reclining Bound Angle Pose
+184,184,Typhoid,Seated twists to aid digestion
+190,190,hepatitis A,Gentle stretching to promote circulation
+191,191,hepatitis A,Shortand slow walks
+192,192,hepatitis A,Deep breathing exercises
+193,193,hepatitis A,Meditation for stress reduction
+194,194,hepatitis A,Restorative yoga poses like Supported Fish Pose
+200,200,Hepatitis B,Walking to boost circulation
+201,201,Hepatitis B,Deep breathing exercises
+202,202,Hepatitis B,Gentle yoga poses like Cat-Cow and Child's Pose
+203,203,Hepatitis B,Light stretching to improve energy levels
+204,204,Hepatitis B,Gentle walking to boost overall energy
+210,210,Hepatitis C,Breathing exercises to enhance oxygen flow
+211,211,Hepatitis C,Low-impact yoga such as Legs Up the Wall Pose
+212,212,Hepatitis C,Slow-paced walking
+213,213,Hepatitis C,Simple stretching to reduce fatigue
+214,214,Hepatitis C,Light arm raises to increase circulation in the upper body
+220,220,Hepatitis D,Seated yoga poses like Seated Forward Bend
+221,221,Hepatitis D,Breathing exercises to support liver health
+222,222,Hepatitis D,Short and gentle walks
+223,223,Hepatitis D,Basic stretching for flexibility
+224,224,Hepatitis D,Low-impact walking for muscle activation
+230,230,Hepatitis E,Gentle yoga poses including Supine Spinal Twist
+231,231,Hepatitis E,Walking at a comfortable pace
+232,232,Hepatitis E,Breathing exercises to relax the body
+233,233,Hepatitis E,Light stretching for muscle relaxation
+234,234,Hepatitis E,Reclining Bound Angle Pose for deep rest
+240,240,Alcoholic hepatitis,Relaxing yoga poses such as Savasana
+241,241,Alcoholic hepatitis,Mindful breathing exercises
+242,242,Alcoholic hepatitis,Gentle walking to improve circulation
+243,243,Alcoholic hepatitis,Meditative stretching for stress relief
+244,244,Alcoholic hepatitis,Restorative yoga poses like Child’s Pose
+250,250,Tuberculosis,Deep breathing exercises for lung capacity improvement
+251,251,Tuberculosis,Gentle yoga poses for chest relaxation
+252,252,Tuberculosis,Walking to build stamina
+253,253,Tuberculosis,Light stretching for muscle maintenance
+254,254,Tuberculosis,Neck stretches to release upper body tension
+260,260,Common Cold,Simple yoga stretches to relax the body
+261,261,Common Cold,Slow and deep breathing exercises
+262,262,Common Cold,Short walks in fresh air if possible
+263,263,Common Cold,Meditation for mental relaxation
+264,264,Common Cold,Gentle shoulder rolls for circulation
+270,270,Pneumonia,Breathing exercises to support lung health
+271,271,Pneumonia,Seated yoga poses like Easy Pose (Sukhasana)
+272,272,Pneumonia,Short slow-paced walks
+273,273,Pneumonia,Gentle stretching to improve circulation
+274,274,Pneumonia,Gentle arm circles for upper body circulation
+280,280,Dimorphic hemmorhoids(piles),Walking to enhance digestion
+281,281,Dimorphic hemmorhoids(piles),Gentle yoga poses such as Bridge Pose
+282,282,Dimorphic hemmorhoids(piles),Breathing exercises to relieve tension
+283,283,Dimorphic hemmorhoids(piles),Kegel exercises
+284,284,Dimorphic hemmorhoids(piles),Reclining Bound Angle Pose
+290,290,Heart attack,Light walking to improve heart health
+291,291,Heart attack,Gentle stretching exercises for flexibility
+292,292,Heart attack,Breathing exercises for stress reduction
+293,293,Heart attack,Seated yoga poses like Seated Forward Bend
+294,294,Heart attack,Seated leg raises for gentle muscle engagement
+300,300,Varicose veins,Leg elevation exercises to improve circulation
+301,301,Varicose veins,Walking to keep blood flow active
+302,302,Varicose veins,Ankle circles and foot flexes
+303,303,Varicose veins,Gentle yoga stretches for legs like Legs Up the Wall Pose
+304,304,Varicose veins,Calf raises to improve leg circulation
+310,310,Hypothyroidism,Low-impact cardio like brisk walking
+311,311,Hypothyroidism,Gentle yoga poses for flexibility like Warrior Pose
+312,312,Hypothyroidism,Deep breathing exercises to relieve stress
+313,313,Hypothyroidism,Neck stretches to relax neck muscles
+314,314,Hypothyroidism,Low-impact yoga poses like Mountain Pose
+330,330,Hypoglycemia,Gentle walking after meals
+331,331,Hypoglycemia,Light strength exercises for stable energy levels
+332,332,Hypoglycemia,Breathing exercises to stabilize mood
+333,333,Hypoglycemia,Seated stretches for relaxation
+334,334,Hypoglycemia,Light stretching after meals
+340,340,Osteoarthristis,Joint-friendly exercises like cycling
+341,341,Osteoarthristis,Swimming to relieve joint stress
+342,342,Osteoarthristis,Yoga poses like Warrior Pose and Tree Pose
+343,343,Osteoarthristis,Low-impact strength training to build muscle
+344,344,Osteoarthristis,Chair yoga to keep joints moving
+350,350,Arthritis,Water aerobics for low-impact resistance
+351,351,Arthritis,Yoga stretches to increase flexibility like Triangle Pose
+352,352,Arthritis,Walking on a flat surface
+353,353,Arthritis,Breathing exercises for relaxation
+354,354,Arthritis,Simple arm circles for flexibility
+360,360,(vertigo) Paroymsal  Positional Vertigo,Walking with balance support
+361,361,(vertigo) Paroymsal  Positional Vertigo,Tai Chi for improved balance
+362,362,(vertigo) Paroymsal  Positional Vertigo,Epley maneuver (for BPPV relief)
+363,363,(vertigo) Paroymsal  Positional Vertigo,Head movements as recommended by a physical therapist
+364,364,(vertigo) Paroymsal  Positional Vertigo,Gaze stabilization exercises for balance
+370,370,Acne,Gentle exercises like walking to reduce stress
+371,371,Acne,Breathing exercises to improve oxygen flow
+372,372,Acne,Simple yoga poses to reduce stress
+373,373,Acne,Light stretching exercises
+374,374,Acne,Arm and leg stretches to improve circulation
+381,381,Urinary tract infection,Go for a walk
+382,382,Urinary tract infection,Seated Forward Bend
+383,383,Urinary tract infection,Deep Breathing
+384,384,Urinary tract infection,Pelvic tilts to strengthen core
+390,390,Psoriasis,Low-impact exercises like swimming
+391,391,Psoriasis,Yoga for stress reduction such as Child's Pose
+392,392,Psoriasis,Breathing exercises to relax the body
+393,393,Psoriasis,Light stretching exercises
+394,394,Psoriasis,Seated forward bends for relaxation
+400,400,Impetigo,Walking to support immune function
+401,401,Impetigo,Gentle stretching for relaxation
+402,402,Impetigo,Breathing exercises to enhance oxygen flow
+403,403,Impetigo,Relaxing yoga poses like Corpse Pose (Savasana)
+404,404,Impetigo,Arm and shoulder stretches for relaxation

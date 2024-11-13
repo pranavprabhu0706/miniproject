@@ -1,0 +1,294 @@
+<!-- Updated chatbot.html with enhancements -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Based Health Advisor</title>
+  <style>
+    /* General Body Background */
+    
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f5f7fa, #c3cfe2); /* Soft gradient */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Chatbot Container */
+  .chat-container {
+    width: 400px;
+    height: 550px;
+    background-color: #ffffff; /* Chatbot box background */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  /* Chat box background */
+  .chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background: #f7f7f7; /* Light grey for conversation area */
+    border-radius: 5px;
+  }
+  
+  /* Chat input box */
+  .chat-input {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  /* Input field */
+  .chat-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f0f0f0; /* Light grey input background */
+  }
+  
+  /* Buttons (Send & Admin) */
+  .chat-input button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .chat-input button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Admin Button Specific Style */
+  #admin-button {
+    background-color: #007bff;
+  }
+  
+  #admin-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* User message */
+  .message.user {
+    text-align: right;
+    background-color: #e0ffe0; /* Light green background for user */
+    padding: 8px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: auto;
+    max-width: 75%;
+  }
+  
+  /* Bot message */
+  .message.bot {
+    text-align: left;
+    background-color: #f0f0f0; /* Light grey background for bot */
+    padding: 8px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 10px;
+    max-width: 75%;
+  }
+  
+  /* Symptom Buttons */
+  .symptoms {
+    margin-bottom: 20px;
+  }
+  
+  .symptoms button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .symptoms button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  </style>
+</head>
+<body>
+<div class="chat-container">
+  <div class="symptoms">
+    <p>Select any symptom:</p>
+    <button onclick="sendSymptom('fever')">Fever</button>
+    <button onclick="sendSymptom('cold')">Cold</button>
+    <button onclick="sendSymptom('cough')">Cough</button>
+    <button onclick="sendSymptom('acidity')">Acidity</button>
+    <button onclick="sendSymptom('vomiting')">Vomiting</button>
+    <button onclick="sendSymptom('scurring')">Scurring</button>
+    <button onclick="sendSymptom('joint_pain')">Joint Pain</button>
+    <button onclick="sendSymptom('headache')">Headache</button>
+    <button onclick="sendSymptom('mild_fever')">Mild Fever</button>
+    <button onclick="sendSymptom('throat_irritation')">Throat Irritation</button>
+    <button onclick="sendSymptom('chest_pain')">Chest Pain</button>
+    <button onclick="sendSymptom('neck_pain')">Neck Pain</button>
+    <button onclick="sendSymptom('knee_pain')">Knee Pain</button>
+    <button onclick="sendSymptom('muscle_weakness')">Muscle Weakness</button>
+    <button onclick="sendSymptom('irregular_sugar_level')">Irregular Sugar Level</button>
+  </div>
+
+  <div class="chat-box" id="chat-box"></div>
+
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Ask about other symptoms..." />
+    <button onclick="sendMessage()">Send</button>
+    <button id="admin-button" onclick="showAdminDetails()">Nearest Healthcare in SVCE</button>
+  </div>
+</div>
+
+<script>
+  const chatBox = document.getElementById('chat-box');
+  
+  // Updated health advice
+  const healthAdvice = {
+    fever: 'If you have a fever, rest and drink plenty of fluids. Take paracetamol to lower fever, and consult a doctor if it persists.',
+    cold: 'For a cold, stay hydrated, rest, and use over-the-counter remedies like nasal spray or lozenges. Always consult your nearest health provider or family doctor for personalized treatment.',
+    cough: 'For a cough, try honey, warm liquids, and over-the-counter cough medicine. If it persists, see a doctor. Always consult your nearest health provider or family doctor for personalized treatment.',
+    acidity: 'To manage acidity, avoid spicy foods, eat smaller meals, and take antacids if necessary. Always consult your nearest health provider or family doctor for personalized treatment.',
+    vomiting: 'Stay hydrated by sipping water or electrolyte solutions. Avoid solid foods until vomiting stops. Always consult your nearest health provider or family doctor for personalized treatment.',
+    scurring: 'For scurvy, increase your intake of vitamin C by eating fruits like oranges and lemons. Always consult your nearest health provider or family doctor for personalized treatment.',
+    joint_pain: 'Rest the affected joints, apply heat or cold, and take over-the-counter pain relief. Consult a doctor if the pain persists. Always consult your nearest health provider or family doctor for personalized treatment.',
+    headache: 'Stay hydrated, rest, and consider taking pain relievers like ibuprofen. If headaches persist, seek medical advice. Always consult your nearest health provider or family doctor for personalized treatment.',
+    mild_fever: 'Mild fever usually subsides with rest and hydration. Monitor your symptoms, and consult a doctor if the fever worsens. Always consult your nearest health provider or family doctor for personalized treatment.',
+    throat_irritation: 'Drink warm liquids, gargle salt water, and try throat lozenges. If symptoms persist, seek medical advice. Always consult your nearest health provider or family doctor for personalized treatment.',
+    chest_pain: 'Chest pain may be serious. Seek immediate medical attention if accompanied by shortness of breath, sweating, or nausea. Always consult your nearest health provider or family doctor for personalized treatment.',
+    neck_pain: 'Apply heat or ice, practice gentle stretching, and avoid prolonged strain. Seek medical help if pain persists. Always consult your nearest health provider or family doctor for personalized treatment.',
+    knee_pain: 'Rest your knee, apply ice, and use over-the-counter pain relievers. If pain persists, consult a doctor. Always consult your nearest health provider or family doctor for personalized treatment.',
+    muscle_weakness: 'Rest and hydration can help. If muscle weakness continues or is severe, consult a doctor for further evaluation. Always consult your nearest health provider or family doctor for personalized treatment.',
+    irregular_sugar_level: 'Monitor your blood sugar levels regularly and follow prescribed medications or dietary advice from your healthcare provider. Always consult your nearest health provider or family doctor for personalized treatment.',
+    diarrhoea: 'Stay hydrated by drinking water or oral rehydration solutions. Avoid dairy and fatty foods. Consult a doctor if diarrhea persists. Always consult your nearest health provider or family doctor for personalized treatment.',
+    itching: "Use soothing lotions, or anti-itch creams. Consult a healthcare provider if it persists.",
+    skin_rash: "Avoid irritants, keep skin moisturized, and try anti-inflammatory creams. Seek medical advice if it worsens.",
+    nodal_skin_eruptions: "For nodal skin eruptions, keep the area clean and avoid scratching. Always consult your nearest health provider or family doctor for personalized treatment.",
+    continuous_sneezing: "For continuous sneezing, avoid allergens and stay hydrated. Consider an antihistamine if needed. Always consult your nearest health provider or family doctor for personalized treatment.",
+    shivering: "For shivering, keep warm and monitor for any fever. Rest is recommended. Always consult your nearest health provider or family doctor for personalized treatment.",
+    chills: "For chills, stay warm and hydrate well. Rest is advised. Always consult your nearest health provider or family doctor for personalized treatment.",
+    joint_pain: "For joint pain, rest the affected area and apply heat or ice as needed. Over-the-counter pain relievers may help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    stomach_pain: "For stomach pain, avoid heavy or spicy foods and stay hydrated. Light, bland meals may help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    ulcers_on_tongue: "For ulcers on the tongue, avoid spicy foods and rinse with salt water. Always consult your nearest health provider or family doctor for personalized treatment.",
+    muscle_wasting: "For muscle wasting, focus on rest and consult a healthcare provider for further evaluation. Nutrient-rich foods and gentle strength exercises may be beneficial. Always consult your nearest health provider or family doctor for personalized treatment.",
+    vomiting: "For vomiting, stay hydrated by sipping water or electrolyte solutions. Avoid solid foods until vomiting stops. Always consult your nearest health provider or family doctor for personalized treatment.",
+    burning_micturition: "For burning during urination, drink plenty of water and avoid caffeine or spicy foods. Always consult your nearest health provider or family doctor for personalized treatment.",
+    spotting_urination: "For spotting during urination, monitor fluid intake and maintain hygiene. If the issue persists, seek medical advice. Always consult your nearest health provider or family doctor for personalized treatment.",
+    fatigue: "For fatigue, rest adequately and stay hydrated. A balanced diet and light exercise can help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    weight_gain: "For weight gain, maintain a balanced diet and regular physical activity. Always consult your nearest health provider or family doctor for personalized treatment.",
+    anxiety: "For anxiety, practice relaxation techniques and ensure adequate sleep. Always consult your nearest health provider or family doctor for personalized treatment.",
+    cold_hands_and_feets: "For cold hands and feet, keep warm and monitor for circulation issues. Gentle movement can help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    mood_swings: "For mood swings, manage stress and get regular physical activity. A balanced diet can also help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    weight_loss: "For unexplained weight loss, monitor diet and consult a healthcare provider. Nutrient-dense meals can support health. Always consult your nearest health provider or family doctor for personalized treatment.",
+    restlessness: "For restlessness, practice relaxation techniques and limit caffeine intake. Always consult your nearest health provider or family doctor for personalized treatment.",
+    lethargy: "For lethargy, get adequate sleep and manage stress levels. A balanced diet can support energy levels. Always consult your nearest health provider or family doctor for personalized treatment.",
+    patches_in_throat: "For throat patches, drink warm liquids and avoid irritants. Saltwater gargles can be soothing. Always consult your nearest health provider or family doctor for personalized treatment.",
+    irregular_sugar_level: "For irregular sugar levels, monitor blood sugar regularly and follow dietary advice from your healthcare provider. Always consult your nearest health provider or family doctor for personalized treatment.",
+    high_fever: "For high fever, stay hydrated and rest. Seek medical help if it persists. Always consult your nearest health provider or family doctor for personalized treatment.",
+    sunken_eyes: "For sunken eyes, increase fluid intake and get adequate rest. Always consult your nearest health provider or family doctor for personalized treatment.",
+    breathlessness: "For breathlessness, avoid strenuous activities and rest. Breathing exercises may help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    sweating: "For excessive sweating, stay hydrated and avoid heavy exertion in hot environments. Always consult your nearest health provider or family doctor for personalized treatment.",
+    dehydration: "For dehydration, increase fluid intake and avoid caffeinated beverages. Always consult your nearest health provider or family doctor for personalized treatment.",
+    indigestion: "For indigestion, avoid heavy meals and spicy foods. Small, frequent meals may help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    headache: "For headache, stay hydrated, rest, and consider over-the-counter pain relievers if needed. Always consult your nearest health provider or family doctor for personalized treatment.",
+    yellowish_skin: "For yellowish skin, seek medical advice, as it may indicate liver issues. Always consult your nearest health provider or family doctor for personalized treatment.",
+    dark_urine: "For dark urine, increase water intake and monitor hydration levels. Always consult your nearest health provider or family doctor for personalized treatment.",
+    nausea: "For nausea, sip water or ginger tea and avoid strong odors. Bland foods may be helpful. Always consult your nearest health provider or family doctor for personalized treatment.",
+    loss_of_appetite: "For loss of appetite, eat small, nutrient-dense meals throughout the day. Always consult your nearest health provider or family doctor for personalized treatment.",
+    pain_behind_the_eyes: "For pain behind the eyes, rest and avoid bright screens. Always consult your nearest health provider or family doctor for personalized treatment.",
+    back_pain: "For back pain, avoid heavy lifting and rest. Gentle stretching may help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    constipation: "For constipation, increase fiber intake and stay hydrated. Gentle exercise may also help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    abdominal_pain: "For abdominal pain, avoid heavy or spicy foods and stay hydrated. Light, bland meals may help. Always consult your nearest health provider or family doctor for personalized treatment.",
+    diarrhoea: "For diarrhea, drink water or oral rehydration solutions to stay hydrated. Avoid dairy and fatty foods. Always consult your nearest health provider or family doctor for personalized treatment.",
+    mild_fever: "For mild fever, rest and stay hydrated. Monitor symptoms and seek medical advice if needed. Always consult your nearest health provider or family doctor for personalized treatment.",
+    yellow_urine: "For yellow urine, increase water intake and monitor hydration. Always consult your nearest health provider or family doctor for personalized treatment.",
+    chest_pain: "For chest pain, seek immediate medical attention if it is severe or accompanied by shortness of breath. Always consult your nearest health provider or family doctor for personalized treatment.",
+    dizziness: "For dizziness, rest and stay hydrated. Avoid sudden movements. Always consult your nearest health provider or family doctor for personalized treatment."
+  };
+
+  const adminDetails = `
+    Medical Centre Details<br>
+    - Name: SVCE Medical Centre<br>
+    - Address: Near Staff Quarters, SVCE.<br>
+  `;
+
+  function sendMessage() {
+    const userInput = document.getElementById('user-input').value.trim().toLowerCase();
+    if (!userInput) {
+      alert("Please enter a symptom or query.");
+      return;
+    }
+    addUserMessage(userInput);
+    document.getElementById('user-input').value = ""; // Clear input
+    showBotTyping(); // Display typing indicator
+    setTimeout(() => respondToMessage(userInput), 1000); // Add delay for bot response
+  }
+
+  function sendSymptom(symptom) {
+    addUserMessage(symptom);
+    showBotTyping();
+    setTimeout(() => respondToMessage(symptom), 1000);
+  }
+
+  function addUserMessage(messageContent) {
+    const message = document.createElement('div');
+    message.classList.add('message', 'user');
+    message.textContent = messageContent;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function showBotTyping() {
+    const typingMessage = document.createElement('div');
+    typingMessage.id = 'typing-indicator';
+    typingMessage.classList.add('message', 'bot');
+    typingMessage.textContent = 'AI-Based Health Advisor is typing...';
+    chatBox.appendChild(typingMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function respondToMessage(symptom) {
+    // Remove typing indicator
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) typingIndicator.remove();
+
+    const response = document.createElement('div');
+    response.classList.add('message', 'bot');
+    if (healthAdvice[symptom]) {
+      response.textContent = healthAdvice[symptom];
+    } else {
+      response.textContent = 'Sorry, I can only provide advice on specific symptoms. Please select from available options.';
+    }
+    chatBox.appendChild(response);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function showAdminDetails() {
+    const response = document.createElement('div');
+    response.classList.add('message', 'bot');
+    response.innerHTML = adminDetails; // Using innerHTML to render line breaks
+    chatBox.appendChild(response);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+</script>
+</body>
+</html>

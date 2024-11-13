@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<style>
+    * {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.reg{
+    font-size: 30px;
+}
+.label-cell {
+    width: 0%; /* Adjust the width as needed */
+}
+
+.input-cell {
+    width: 0%; /* Adjusted for better alignment with label */
+}
+.emailinfo, .passinfo{
+    border: solid 3px white;
+    border-radius: 12px;
+    background-color: transparent;
+    margin: 0px;
+    padding: 5px;
+}
+
+.emailinfo input,.passinfo input
+{
+    border: none; /* Remove the input's default border */
+    background: transparent; /* Make background transparent */
+    color: white; /* Text color */
+    width: 100%; /* Full width */
+    padding: 10px; /* Inner padding for the input */
+    border-radius: 12px; /* Match the border radius */
+    font-size: 20px;
+    width: 15cm;
+    margin: 0px;
+    outline: none;
+}
+
+.btn1 {
+    border: solid 2px white; /* Add border to the button */
+    background: transparent; /* Make background transparent */
+    color: white; /* Text color */
+    width: 5cm; /* Fixed width */
+    padding: 10px; /* Inner padding for the button */
+    margin-top: 7px;;
+    border-radius: 12px; /* Match the border radius */
+    cursor: pointer;
+    font-size: 20px; /* Match font size */
+    transition: background-color 0.3s; /* Add transition for hover effect */
+}
+
+.btn1:hover {
+    background-color: rgb(0, 255, 4); /* Change background on hover */
+    color: black;
+}
+
+.regpage a{
+    color: blue;
+}
+
+
+</style>
+<body>
+    <center>
+        <form action="handle_login.php" method="post" class="registration-form">
+            <center>
+                <h2 class="reg">User Login</h2>
+                <h3 class="h3det" style="margin-bottom: 40px ;">Kindly fill in the necessary details below</h3>
+            </center>
+            <table cellpadding="8" cellspacing="0">
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="Email"><b>Email</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="emailinfo">
+                            <input type="email" placeholder="Enter your Email" name="Email" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="Password"><b>Password</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="passinfo">
+                            <input type="password" placeholder="Enter your Password" name="Password" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center; position: relative;">
+                        <button class="btn1" type="submit">Login</button>
+                        <a class="loginpage" href="register.html" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: blue;">New user? Register</a>
+                    </td>
+                </tr>
+</body>
+</html>

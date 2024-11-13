@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Advisor</title>
+    <script>
+        function toggleBPInput(value) {
+            const bpInputContainer = document.getElementById('bpInputContainer');
+            bpInputContainer.style.display = value === 'no' ? 'block' : 'none'; // Show or hide input for abnormal BP
+            if (value === 'normal') document.getElementById('bpInput').value = ''; // Clear input if normal
+        }
+
+        function toggleDiabetesInput(value) {
+            const diabetesInputContainer = document.getElementById('diabetesInputContainer');
+            diabetesInputContainer.style.display = value === 'yes' ? 'block' : 'none'; // Show or hide input for diabetic history
+            if (value === 'yes') document.getElementById('diabetesInput').value = ''; // Clear input if no
+        }
+    </script>
+</head>
+<style>
+    * {
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+
+    .reg {
+        font-size: 30px;
+        color: aqua;
+    }
+
+    .h3det {
+        padding-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .label-cell {
+        width: 30%;
+    }
+
+    .input-cell {
+        width: 70%;
+    }
+
+    .nameinfo, .genderinfo, .dobinfo, .emailinfo, .radio-group, .weightinfo, .passinfo {
+        border: solid 3px white;
+        border-radius: 12px;
+        background-color: transparent;
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .nameinfo input,
+    .genderinfo select,
+    .dobinfo input,
+    .emailinfo input, 
+    .radio-group,
+    .weightinfo input,
+    .passinfo input,
+    .bpInputContainer input,
+    .diabetesInputContainer input {
+        border: none;
+        background: transparent;
+        color: white;
+        width: 100%;
+        padding: 10px;
+        border-radius: 12px;
+        font-size: 20px;
+        margin: 0px;
+        outline: none;
+    }
+
+    .bpInputContainer, .diabetesInputContainer {
+        border: solid 3px white;
+        border-radius: 12px;
+        background-color: transparent;
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .radio-group {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .btn1 {
+        border: solid 2px white;
+        background: transparent;
+        color: white;
+        width: 5cm;
+        padding: 10px;
+        margin-top: 7px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .btn1:hover {
+        background-color: rgb(0, 255, 4);
+        color: black;
+    }
+
+    .action-container {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        margin-top: 10px;
+    }
+
+    .loginpage {
+        color: blue;
+        margin-top: 0px; /* Space between button and link */
+        align-self: flex-end; /* Align to the right */
+        width: 100%; /* Full width to push to the right */
+        text-align: right; /* Align text to the right */
+    }
+</style>
+<body>
+    <center>
+        <form action="loginpage.php" method="post" class="registration-form">
+            <center>
+                <h2 class="reg">Health and General Information</h2>
+                <h3 class="h3det">Kindly fill in the necessary details below</h3>
+            </center>
+            <table cellpadding="8" cellspacing="0">
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="name"><b>Name</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="nameinfo">
+                            <input type="text" placeholder="Enter your Name" name="Name" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="email"><b>Email</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="emailinfo">
+                            <input type="email" placeholder="Enter your Email" name="Email" required>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="password"><b>Password</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="passinfo">
+                            <input type="password" placeholder="Enter a Password" name="Password" required>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="dob"><b>Date of Birth</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="dobinfo">
+                            <input type="date" name="DOB" required>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="gender"><b>Gender</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="genderinfo">
+                            <select name="gender" id="gender" required>
+                                <option value="" disabled selected>Select your Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label for="weight"><b>Weight</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="weightinfo">
+                            <input type="number" placeholder="Enter your Weight" name="Weight" required>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label><b>Blood Pressure</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="radio-group">
+                            <label><input type="radio" name="bp" value="normal" onclick="toggleBPInput(this.value)"> Normal</label>
+                            <label><input type="radio" name="bp" value="no" onclick="toggleBPInput(this.value)"> Abnormal</label>
+                        </div>
+                        <div id="bpInputContainer" class="bpInputContainer" style="display: none;">
+                            <input type="text" id="bpInput" name="bpLevel" placeholder="Enter BP level (e.g., 120/80)">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label-cell">
+                        <div>
+                            <label><b>Diabetic History</b></label>
+                        </div>
+                    </td>
+                    <td class="input-cell">
+                        <div class="radio-group">
+                            <label><input type="radio" name="diabetes" value="no" onclick="toggleDiabetesInput(this.value)"> No</label>
+                            <label><input type="radio" name="diabetes" value="yes" onclick="toggleDiabetesInput(this.value)"> Yes</label>
+                        </div>
+                        <div id="diabetesInputContainer" class="diabetesInputContainer" style="display: none;">
+                            <input type="text" id="diabetesInput" name="diabetesDetails" placeholder="Enter details (if any)">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <div class="action-container">
+                            <button class="btn1" type="submit">Next</button>
+                            <a class="loginpage" href="login.html">Already a user? Login</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>
